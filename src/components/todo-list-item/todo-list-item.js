@@ -8,22 +8,25 @@ export default class TodoListItem extends Component {
   };
 
   onLabelClick = () => {
-    console.log(`Done: ${this.props.label}`);
-    this.setState({
-      done: true
+    this.setState((state) => {
+      return {
+        done: !state.done
+      };
     });
   };
 
   onMarkImportant = () => {
-    this.setState({
-      important: true
+    this.setState((state) => {
+      return {
+        important: !state.important
+      };
     });
   };
 
   render() {
     const { label } = this.props;
     const { done, important } = this.state;
-    let classNames = "todo-list-item"
+    let classNames = "todo-list-item";
 
     if(done) {
       classNames += " done"
